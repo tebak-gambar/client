@@ -2,7 +2,7 @@
     <div class="col-8 mx-auto my-5">
         <form action="#" autocomplete="off">
             <fieldset class="answerText">
-                <input id="answerText" type="text" required="required">
+                <input id="answerText" type="text" required="required" v-model='answer'>
                     <label for="answerText">
                         <i class="fa fa-search" aria-hidden="true"></i>Answer</label>
                     <div class="after"></div>
@@ -14,7 +14,14 @@
     </template>
 
 <script>
-    export default {}
+    export default {
+        name:'AnswerForm',
+        data(){
+            return {
+                answer : ''
+            }
+        }
+    }
 </script>
 
 <style>
