@@ -22,7 +22,7 @@
             </div>
         </div>
         <center>
-            <button class="start-room-btn">Start</button>
+            <button @click="toGame()" class="start-room-btn">Start</button>
             <button @click="toHome()" class="leave-room-btn">Leave</button>
 
         </center>
@@ -41,7 +41,10 @@ export default {
       toHome () {
           this.$router.push('/home')
           localStorage.removeItem('room')
-      }  
+      }, 
+      toGame () {
+          this.$router.push('/gameroom')
+      } 
     },
     created() {
         this.roomtitle = localStorage.getItem('room')
