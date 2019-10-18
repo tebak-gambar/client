@@ -7,18 +7,35 @@
                         <i class="fa fa-search" aria-hidden="true"></i>Answer</label>
                     <div class="after"></div>
                 </fieldset>
-                <!-- <fieldset class="enter"> <button></button> </fieldset> -->
+                <div>
+                    <b-button id="show-btn" @click="showModal">Submit</b-button>
+
+                <b-modal class="modal-header" ref="my-modal" hide-footer title="Congratulations!">
+                    <div class="d-block text-center"> 
+                        <img id="patrick" src="https://media.giphy.com/media/1GTZA4flUzQI0/giphy.gif">
+                    </div>
+                    <b-button class="mt-3 mx-auto" variant="secondary" block @click="hideModal">Close</b-button>
+                    </b-modal>
+                </div>
             </form>
 
         </div>
     </template>
 
 <script>
-    export default {}
+    export default {
+        methods: {
+            showModal() {
+                this.$refs['my-modal'].show()
+            },
+            hideModal() {
+                this.$refs['my-modal'].hide()
+            }
+        }
+    }
 </script>
 
 <style scoped>
-
     fieldset {
         position: relative;
     }
@@ -105,5 +122,24 @@
         -o-transition: all 0.3s ease;
         transition: all 0.3s ease;
     }
+
+#patrick {
+    width:300px;
+    height: 300px;
+
+}
+
+.modal-body {
+    background-color: red !important;
+}
+
+.btn-secondary {
+    width: 100px;
+
+}
+
+.modal-header {
+    background-color: black;
+}
 
 </style>

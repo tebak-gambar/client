@@ -1,7 +1,9 @@
 <template>
     <div id="start">
         <center>
-            <img src="./img/tebakgambar.png"> 
+            <img src="
+            https://storage.cloud.google.com/ashirogisen-miniwp/tebakgambar/assets/tebakgambar.png?folder=true&organizationId=true
+            "> 
             <b-card
                     header="Input your name here to start the game!"
                     header-text-variant="black"
