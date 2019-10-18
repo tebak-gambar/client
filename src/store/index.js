@@ -155,7 +155,7 @@ export default new Vuex.Store({
           obj.winner = payload.winner;
 
           let random = Math.floor(Math.random() * 18);
-          obj.question = state.questions[0];
+          obj.question = state.questions[random];
           return Room.doc(payload.id).set(obj);
         })
         .catch(err => {
