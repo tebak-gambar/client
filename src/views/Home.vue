@@ -1,29 +1,68 @@
 <template>
-  <div class="home container">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <Navbar />
+  <div class="container">
     <div class="row">
-      <GameRoom />
-      <AnswerForm />
-      <!-- <ScoreBoard /> -->
+      <div class="col-md-12">
+        <form @submit.prevent="postRoom" action="#">
+          <div class="form-group">
+            <label for="#">Room Name</label>
+            <input v-model="roomForm.name" type="text" class="form-control" />
+          </div>
+          <button class="btn btn-primary">Create Room</button>
+        </form>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div v-for="room in rooms" :key="room.id" class="col-md-4">
+        {{ room.name }}
+        <br />
+        <button @click="join(room.id)" class="btn btn-primary">Join Room</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-import GameRoom from '@/view4_5/GameRoom.vue'
-import Navbar from '../view4_5/Navbar.vue'
-import AnswerForm from '@/view4_5/AnswerForm.vue'
-import ScoreBoard from '@/view4_5/ScoreBoard.vue'
-
-
 export default {
-  name: 'home',
-  components: {
-    HelloWorld, GameRoom, Navbar, AnswerForm, ScoreBoard
+  computed: {
+    roomForm: {
+      get() {
+        return this.$store.state.roomForm;
+      },
+      set(val) {
+        return this.$store.commit("updateRoomForm", val);
+      }
+    },
+    rooms: {
+      get() {
+        return this.$store.state.rooms;
+      }
+    },
+    questions: {
+      get() {
+        return this.$store.state.questions;
+      }
+    }
+  },
+  methods: {
+    postRoom() {
+      this.$store.dispatch("postRoom");
+    },
+    getRooms() {
+      this.$store.dispatch("getRooms");
+    },
+    getQuestions() {
+      this.$store.dispatch("getQuestions");
+    },
+    join(id) {
+      this.$store.dispatch("join", id);
+    }
+  },
+  created() {
+    this.getRooms();
+    this.getQuestions();
   }
-}
+};
 </script>
+
+<style>
+</style>
