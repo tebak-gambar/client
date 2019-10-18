@@ -1,13 +1,24 @@
 <template>
-  <div class="col-8 mx-auto tes">
-      <div class="img_section">
-        <img src="../assets/capchai.png" alt="img1">
-      </div>
+  <div>
+    <Navbar />
+    <div class="col-8 mx-auto tes">
+        <div class="img_section">
+          <img src="../assets/capchai.png" alt="img1">
+          <AnswerForm />
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
+import Navbar from '../view4_5/Navbar'
+import AnswerForm from '../view4_5/AnswerForm'
+
 export default {
+  components: {
+    Navbar,
+    AnswerForm
+  }
 
 }
 </script>
