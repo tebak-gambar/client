@@ -7,18 +7,57 @@
                         <i class="fa fa-search" aria-hidden="true"></i>Answer</label>
                     <div class="after"></div>
                 </fieldset>
-                <!-- <fieldset class="enter"> <button></button> </fieldset> -->
+                <div>
+                    <b-button id="show-btn" @click="showModal">Submit</b-button>
+
+                <b-modal class="modal-header" ref="my-modal" hide-footer title="Congratulations!">
+                    <div class="d-block text-center"> 
+                        <img id="patrick" :src="meme">
+                    </div>
+                    <b-button class="mt-3 mx-auto" variant="secondary" block @click="hideModal">Close</b-button>
+                    </b-modal>
+                </div>
             </form>
 
         </div>
     </template>
 
 <script>
-    export default {}
+const memeArr = [
+    'https://media.giphy.com/media/ely3apij36BJhoZ234/giphy.gif',
+    'https://media.giphy.com/media/1GTZA4flUzQI0/giphy.gif',
+    'https://media.giphy.com/media/xDpB3lRInUYla/giphy.gif',
+    'https://media.giphy.com/media/3o7bu57lYhUEFiYDSM/giphy.gif',
+    'https://media.giphy.com/media/gFccuw5vFkc9trBiQ1/giphy.gif',
+    'https://media.giphy.com/media/GK7grZYLG7cs0/giphy.gif',
+    'https://media.giphy.com/media/H8EiECaJ0rG8k1X2Bg/giphy.gif',
+    'https://media.giphy.com/media/WRQH9JNSLmGLHjH1oH/giphy.gif'
+]
+    export default {
+        data(){
+            return {
+                meme: ''
+            }
+        },
+        methods: {
+            showModal() {
+                this.$refs['my-modal'].show()
+            },
+            hideModal() {
+                this.$refs['my-modal'].hide()
+            },
+            randomMeme() {
+                this.meme = memeArr[Math.floor(Math.random()*5)]
+                
+            }
+        },
+        created() {
+            this.randomMeme()
+        }
+    }
 </script>
 
-<style>
-
+<style scoped>
     fieldset {
         position: relative;
     }
@@ -105,5 +144,24 @@
         -o-transition: all 0.3s ease;
         transition: all 0.3s ease;
     }
+
+#patrick {
+    width:300px;
+    height: 300px;
+
+}
+
+.modal-body {
+    background-color: red !important;
+}
+
+.btn-secondary {
+    width: 100px;
+
+}
+
+.modal-header {
+    background-color: black;
+}
 
 </style>

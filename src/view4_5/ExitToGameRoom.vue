@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .exitBtn {
     transition: transform .2s;
 }

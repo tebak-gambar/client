@@ -2,7 +2,9 @@
     <div class="container-fluid">
         <b-navbar variant="faded" type="light">
             <b-navbar-brand href="#">
-                <img class="logo" src="../assets/logotebakgambar.png" alt="logo"></b-navbar-brand>
+                <img class="logo" src="
+                https://storage.cloud.google.com/ashirogisen-miniwp/tebakgambar/assets/tebakgambar.png?folder=true&organizationId=true
+                " alt="logo"></b-navbar-brand>
 
                 <b-navbar-nav class="ml-auto">
                     <countdown :end-time="new Date().getTime() + 60000">
@@ -21,13 +23,14 @@
     }
 </script>
 
-<style>
+<style scoped>
     .navbar_container {
         padding: 50px 0;
     }
 
     .logo {
         width: 6.5vw;
+        height: auto;
     }
     .timer {
         font-weight: bold;
