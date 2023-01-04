@@ -13,7 +13,7 @@
     "firebase": "^7.2.1",
     "sweetalert2": "^8.18.4",
     "vue": "^2.6.10",
-    "vue-awesome-countdown": "^1.0.16",
+    "vue-awesome-countdown": "^1.1.4",
     "vue-router": "^3.0.6",
     "vuex": "^3.0.1"
   },
@@ -21,7 +21,7 @@
     "@vue/cli-plugin-babel": "^4.0.0",
     "@vue/cli-plugin-router": "^4.0.0",
     "@vue/cli-plugin-vuex": "^4.0.0",
-    "@vue/cli-service": "^4.0.0",
+    "@vue/cli-service": "^5.0.8",
     "vue-template-compiler": "^2.6.10"
   }
 }
